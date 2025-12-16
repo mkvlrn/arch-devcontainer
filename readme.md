@@ -24,7 +24,7 @@ adjust the values in `./.devcontainer/.env.devcontainer` to match your needs; it
 ## start container (with devpod)
 
 ```bash
-./devcontainer.sh
+./.devcontainer/devpod.sh
 ```
 
 you can pass the `--recreate` option to start with a fresh container
