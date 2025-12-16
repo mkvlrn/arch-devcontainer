@@ -37,11 +37,16 @@ echo "$USERNAME ALL=(ALL) NOPASSWD: ALL" >"/etc/sudoers.d/$USERNAME"
 chmod 0440 "/etc/sudoers.d/$USERNAME"
 
 # packages yo
-PACKAGES="aws-cli-bin bun-bin fastfetch github-cli htop jq k-git less oh-my-posh-bin pnpm pnpm-shell-completion zsh-autocomplete-git zsh-syntax-highlighting-git"
+PACKAGES="aws-cli-bin bun-bin fastfetch github-cli htop jq k-git less nvm oh-my-posh-bin pnpm pnpm-shell-completion zsh-autocomplete-git zsh-syntax-highlighting-git"
 su dev -c "yay -Y --devel --save"
 reflector --latest 20 --protocol https --sort rate --country Brazil --save /etc/pacman.d/mirrorlist
 pacman -Syy --noconfirm
 su dev -c "yay -S --needed --noconfirm $PACKAGES"
+su - dev -s /bin/zsh -c '
+  export NVM_DIR="$HOME/.nvm"
+  source /usr/share/nvm/init-nvm.sh
+  nvm install --lts
+'
 
 # remove deps and cache
 pacman -Scc --noconfirm

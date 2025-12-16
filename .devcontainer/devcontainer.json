@@ -6,5 +6,8 @@
   "workspaceMount": "source=${localWorkspaceFolder},target=/code/${localWorkspaceFolderBasename},type=bind",
   "mounts": [
     "source=${localEnv:GIT_SSH_KEY_PATH},target=/home/dev/.ssh/devpod,type=bind,consistency=cached,readonly"
-  ]
+  ],
+  "containerEnv": {
+    "TZ": "America/Sao_Paulo"
+  }
 }

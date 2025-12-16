@@ -1,24 +1,25 @@
 # paths
+export NVM_DIR="$HOME/.nvm"
 export BUN_INSTALL="$HOME/.bun"
 
 # PATH
-export PATH="$BUN_INSTALL/bin:$PATH"
+export PATH="$BUN_INSTALL/bin:$NVM_DIR:$PATH"
 
 # zsh plugins
 plugins=(git)
-source $HOME/.zsh-autocomplete/zsh-autocomplete.plugin.zsh
-source $HOME/.zsh-syntax-highlighting/zsh-syntax-highlighting.plugin.zsh
-source $HOME/.k/k.plugin.zsh
+source /usr/share/zsh/plugins/zsh-autocomplete/zsh-autocomplete.plugin.zsh
+source /usr/share/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.plugin.zsh
+source /usr/share/zsh/plugins/k-git/k.plugin.zsh
+source /usr/share/zsh/plugins/pnpm-shell-completion/pnpm-shell-completion.zsh
+source /usr/share/nvm/init-nvm.sh
 
-# install completions
-pnpm completion zsh >$HOME/.pnpm-completion.zsh
-SHELL=zsh bun completions
-# load completions
-source $HOME/.pnpm-completion.zsh
+# bun completions
+mkdir -p $BUN_INSTALL
+SHELL=zsh bun completions >$BUN_INSTALL/_bun
 source $HOME/.bun/_bun
 
 # prompt
-eval "$(oh-my-posh init zsh --config $HOME/.config/mkvlrn.omp.json)"
+eval "$(oh-my-posh init zsh --config negligible)"
 
 # disable expansion of variables
 zstyle ':autocomplete:*' min-input 3
