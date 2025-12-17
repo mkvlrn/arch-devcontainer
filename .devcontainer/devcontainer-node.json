@@ -1,6 +1,6 @@
 {
   "name": "${localWorkspaceFolderBasename}-devpod",
-  "image": "mkvlrn/arch-devcontainer:latest",
+  "image": "mkvlrn/arch-devcontainer-node:latest",
   "remoteUser": "dev",
   "workspaceFolder": "/code/${localWorkspaceFolderBasename}",
   "workspaceMount": "source=${localWorkspaceFolder},target=/code/${localWorkspaceFolderBasename},type=bind",

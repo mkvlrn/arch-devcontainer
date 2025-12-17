@@ -2,7 +2,9 @@
 
 ## what is this
 
-a simple devcontainer config using archlinux base image for node development
+a simple devcontainer config using archlinux base image
+
+couple images available for different stacks: node, go, python
 
 ## requirements
 
@@ -14,7 +16,7 @@ a simple devcontainer config using archlinux base image for node development
 this adds the devcontainer configuration and the script to start it using devpod
 
 ```bash
-curl -sL https://raw.githubusercontent.com/mkvlrn/arch-devcontainer/main/setup.sh | bash
+curl -sL https://raw.githubusercontent.com/mkvlrn/arch-devcontainer/main/setup.sh | bash -s -- node # or whatever variant
 ```
 
 ## config

@@ -20,10 +20,9 @@ fi
 
 set -a
 . "$ENV_FILE"
-echo $TZ
 set +a
 
 devpod-cli context set-options default -o SSH_INJECT_GIT_CREDENTIALS=false
-devpod-cli up . --ide "$PROJECT_EDITOR" \
-  --workspace-env-file "$ENV_FILE" \
-  "$RECREATE_FLAG"
+CMD=(devpod-cli up . --ide "$PROJECT_EDITOR" --workspace-env-file "$ENV_FILE")
+[[ -n "$RECREATE_FLAG" ]] && CMD+=("$RECREATE_FLAG")
+"${CMD[@]}"
