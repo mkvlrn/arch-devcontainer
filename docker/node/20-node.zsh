@@ -9,6 +9,7 @@ export PATH="$BUN_INSTALL/bin:$NVM_DIR:$PATH"
 source /usr/share/nvm/init-nvm.sh
 
 # completions
+mkdir -p $BUN_INSTALL
 source /usr/share/zsh/plugins/pnpm-shell-completion/pnpm-shell-completion.zsh
 SHELL=zsh bun completions >$BUN_INSTALL/_bun
-source $HOME/.bun/_bun
+source $BUN_INSTALL/_bun
