@@ -1,0 +1,13 @@
+{
+  "name": "${localWorkspaceFolderBasename}-devpod",
+  "image": "mkvlrn/arch-devcontainer-python:latest",
+  "remoteUser": "dev",
+  "workspaceFolder": "/code/${localWorkspaceFolderBasename}",
+  "workspaceMount": "source=${localWorkspaceFolder},target=/code/${localWorkspaceFolderBasename},type=bind",
+  "mounts": [
+    "source=${localEnv:GIT_SSH_KEY_PATH},target=/home/dev/.ssh/devpod,type=bind,consistency=cached,readonly"
+  ],
+  "containerEnv": {
+    "TZ": "${localEnv:TZ}"
+  }
+}
