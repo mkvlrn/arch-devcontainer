@@ -19,7 +19,7 @@ curl -sL https://raw.githubusercontent.com/mkvlrn/arch-devcontainer/main/setup.s
 
 ## config
 
-adjust the values in `./.devcontainer/.env.devcontainer` to match your needs; it's only git info, the ssh key to be used (it will be mounted into the devcontainer), and what editor you'll be using
+adjust the values in `./.devcontainer/.env.devcontainer` to match your needs; it's only git info, the ssh key to be used (it will be mounted into the devcontainer), your timezone, and what editor you'll be using
 
 ## start container (with devpod)
 
