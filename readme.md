@@ -27,20 +27,20 @@ this downloads the `.devcontainer` directory with the base configuration and all
 json
 {
   "features": {
-    "github.com/mkvlrn/arch-devcontainer/features/node": {},
-    "github.com/mkvlrn/arch-devcontainer/features/go": {},
-    "github.com/mkvlrn/arch-devcontainer/features/python": {}
+    "ghcr.io/mkvlrn/arch-devcontainer/node:latest": {},
+    "ghcr.io/mkvlrn/arch-devcontainer/go:latest": {},
+    "ghcr.io/mkvlrn/arch-devcontainer/python:latest": {}
   }
 }
 ```
 
 ## available features
 
-| Feature                                               | Description                                           |
-| ----------------------------------------------------- | ----------------------------------------------------- |
-| `github.com/mkvlrn/arch-devcontainer/features/node`   | nvm, pnpm, bun (option: `nodeVersion`, default: `24`) |
-| `github.com/mkvlrn/arch-devcontainer/features/go`     | go + tools (gopls, delve, golangci-lint, etc.)        |
-| `github.com/mkvlrn/arch-devcontainer/features/python` | uv package manager + `newpy` helper function          |
+| Feature                                   | Description                                           |
+| ----------------------------------------- | ----------------------------------------------------- |
+| `ghcr.io/mkvlrn/arch-devcontainer/node`   | nvm, pnpm, bun (option: `nodeVersion`, default: `24`) |
+| `ghcr.io/mkvlrn/arch-devcontainer/go`     | go + tools (gopls, delve, golangci-lint, etc.)        |
+| `ghcr.io/mkvlrn/arch-devcontainer/python` | uv package manager + `newpy` helper function          |
 
 ## start container (with devpod)
 
@@ -49,3 +49,7 @@ json
 ```
 
 pass `--recreate` to start fresh:
+
+```bash
+./.devcontainer/devpod.sh --recreate
+```
