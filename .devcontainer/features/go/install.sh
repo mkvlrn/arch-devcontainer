@@ -15,3 +15,7 @@ su - dev -s /bin/zsh -c '
   go install github.com/golangci/golangci-lint/cmd/golangci-lint@latest
   go install mvdan.cc/gofumpt@latest
 '
+
+# copy files
+cp *.zsh /home/dev/.config/zsh/
+chown dev:dev /home/dev/.config/zsh/*.zsh

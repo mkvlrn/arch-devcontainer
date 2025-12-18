@@ -1,0 +1,13 @@
+{
+  "id": "node",
+  "version": "1.0.0",
+  "name": "Node",
+  "description": "Setup node with nvm and bun",
+  "options": {
+    "nodeVersion": {
+      "type": "string",
+      "default": "24",
+      "description": "Node.js version"
+    }
+  }
+}

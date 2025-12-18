@@ -2,33 +2,45 @@
 
 ## what is this
 
-a simple devcontainer config using archlinux base image
-
-couple images available for different stacks: node, go, python
+a devcontainer setup using arch linux as base image, with optional features for different development stacks (node, go, python)
 
 ## requirements
 
 - docker
-- [devpod](https://devpod.sh/) - it is better than vscode's devcontainer extension, and more flexible, as it allows you to use _any_ editor/ide and get configurations to make life easier
+- [devpod](https://devpod.sh/) - better than vscode's devcontainer extension, more flexible, works with any editor/ide
 
 ## setup
 
-this adds the devcontainer configuration and the script to start it using devpod
-
 ```bash
-# node env
-curl -sL https://raw.githubusercontent.com/mkvlrn/arch-devcontainer/main/setup.sh | bash -s -- node
-
-# go env
-curl -sL https://raw.githubusercontent.com/mkvlrn/arch-devcontainer/main/setup.sh | bash -s -- go
-
-# python env
-curl -sL https://raw.githubusercontent.com/mkvlrn/arch-devcontainer/main/setup.sh | bash -s -- python
+curl -sL https://raw.githubusercontent.com/mkvlrn/arch-devcontainer/main/setup.sh | bash
 ```
+
+this downloads the `.devcontainer` directory with the base configuration and all available features
 
 ## config
 
-create `./.devcontainer/.env.devcontainer` based on `./.devcontainer/.env.devcontainer.example` and adjust values to match your needs; it's only git info, the ssh key to be used (it will be mounted into the devcontainer), your timezone, and what editor you'll be using
+1. copy `.devcontainer/.env.devcontainer.example` to `.devcontainer/.env.devcontainer`
+2. edit the values to match your needs (git info, ssh key path, timezone, editor)
+3. edit `.devcontainer/devcontainer.json` to add the features you need:
+
+```json
+json
+{
+  "features": {
+    "./features/node": {},
+    "./features/go": {},
+    "./features/python": {}
+  }
+}
+```
+
+## available features
+
+| Feature             | Description                                           |
+| ------------------- | ----------------------------------------------------- |
+| `./features/node`   | nvm, pnpm, bun (option: `nodeVersion`, default: `24`) |
+| `./features/go`     | go + tools (gopls, delve, golangci-lint, etc.)        |
+| `./features/python` | uv package manager + `newpy` helper function          |
 
 ## start container (with devpod)
 
@@ -36,4 +48,4 @@ create `./.devcontainer/.env.devcontainer` based on `./.devcontainer/.env.devcon
 ./.devcontainer/devpod.sh
 ```
 
-you can pass the `--recreate` option to start with a fresh container
+pass `--recreate` to start fresh:
