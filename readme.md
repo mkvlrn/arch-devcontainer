@@ -2,7 +2,7 @@
 
 ## what is this
 
-a devcontainer setup using arch linux as base image, with optional features for different development stacks (node, go, python)
+a devcontainer setup using arch linux as base image, with optional features for different development stacks (node, go, python, dotnet)
 
 ## requirements
 
@@ -29,7 +29,8 @@ json
   "features": {
     "ghcr.io/mkvlrn/arch-devcontainer/node:latest": {},
     "ghcr.io/mkvlrn/arch-devcontainer/go:latest": {},
-    "ghcr.io/mkvlrn/arch-devcontainer/python:latest": {}
+    "ghcr.io/mkvlrn/arch-devcontainer/python:latest": {},
+    "ghcr.io/mkvlrn/arch-devcontainer/dotnet:latest": {},
   }
 }
 ```
@@ -41,6 +42,7 @@ json
 | `ghcr.io/mkvlrn/arch-devcontainer/node`   | nvm, pnpm, bun (option: `nodeVersion`, default: `24`) |
 | `ghcr.io/mkvlrn/arch-devcontainer/go`     | go + tools (gopls, delve, golangci-lint, etc.)        |
 | `ghcr.io/mkvlrn/arch-devcontainer/python` | uv package manager + `newpy` helper function          |
+| `ghcr.io/mkvlrn/arch-devcontainer/dotnet` | dotnet sdk                                            |
 
 ## start container (with devpod)
 
