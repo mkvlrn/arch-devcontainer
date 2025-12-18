@@ -1,7 +1,7 @@
 #!/bin/bash
 set -e
 
-IMAGE_NAME="mkvlrn/arch-devcontainer"
+IMAGE_NAME="ghcr.io/mkvlrn/arch-devcontainer"
 DOCKER_DIR="docker"
 CALVER="$(date +%Y.%m.%d-%H%M%S)"
 
