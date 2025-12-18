@@ -10,5 +10,6 @@
   "containerEnv": {
     "TZ": "${localEnv:TZ}"
   },
-  "features": {}
+  "features": {},
+  "runArgs": ["--name", "devcontainer_${localWorkspaceFolderBasename}"]
 }
