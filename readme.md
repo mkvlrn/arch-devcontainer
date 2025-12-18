@@ -27,20 +27,20 @@ this downloads the `.devcontainer` directory with the base configuration and all
 json
 {
   "features": {
-    "./features/node": {},
-    "./features/go": {},
-    "./features/python": {}
+    "github.com/mkvlrn/arch-devcontainer/features/node": {},
+    "github.com/mkvlrn/arch-devcontainer/features/go": {},
+    "github.com/mkvlrn/arch-devcontainer/features/python": {}
   }
 }
 ```
 
 ## available features
 
-| Feature             | Description                                           |
-| ------------------- | ----------------------------------------------------- |
-| `./features/node`   | nvm, pnpm, bun (option: `nodeVersion`, default: `24`) |
-| `./features/go`     | go + tools (gopls, delve, golangci-lint, etc.)        |
-| `./features/python` | uv package manager + `newpy` helper function          |
+| Feature                                               | Description                                           |
+| ----------------------------------------------------- | ----------------------------------------------------- |
+| `github.com/mkvlrn/arch-devcontainer/features/node`   | nvm, pnpm, bun (option: `nodeVersion`, default: `24`) |
+| `github.com/mkvlrn/arch-devcontainer/features/go`     | go + tools (gopls, delve, golangci-lint, etc.)        |
+| `github.com/mkvlrn/arch-devcontainer/features/python` | uv package manager + `newpy` helper function          |
 
 ## start container (with devpod)
 

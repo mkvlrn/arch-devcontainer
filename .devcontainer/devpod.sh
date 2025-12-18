@@ -18,9 +18,14 @@ if [ ! -f "$ENV_FILE" ]; then
   exit 1
 fi
 
-set -a
-. "$ENV_FILE"
-set +a
+while IFS='=' read -r key value; do
+  [[ -z "$key" || "$key" =~ ^# ]] && continue
+  value="${value#\"}"
+  value="${value%\"}"
+  value="${value#\'}"
+  value="${value%\'}"
+  export "$key=$value"
+done <"$ENV_FILE"
 
 devpod-cli context set-options default -o SSH_INJECT_GIT_CREDENTIALS=false
 CMD=(devpod-cli up . --ide "$PROJECT_EDITOR" --workspace-env-file "$ENV_FILE")
