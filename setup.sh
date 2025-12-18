@@ -5,10 +5,9 @@ REPO="arch-devcontainer"
 TARBALL_URL="https://github.com/$ORG/$REPO/archive/refs/heads/main.tar.gz"
 
 echo "Starting DevContainer setup from $ORG/$REPO..."
-curl -sfL "$TARBALL_URL" | tar -xz --strip-components=1 "$REPO-$BRANCH/.devcontainer"
+curl -sfL "$TARBALL_URL" | tar -xz --strip-components=1 "$REPO-main/.devcontainer"
 rm -f .devcontainer/.env.devcontainer
 chmod +x .devcontainer/devpod.sh
-echo "Setup complete ($VARIANT). Run ./.devcontainer/devpod.sh to start the workspace."
 echo "Setup complete!"
 echo ""
 echo "Next steps:"
