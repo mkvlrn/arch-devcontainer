@@ -31,6 +31,6 @@ while IFS='=' read -r key value; do
 done <"$ENV_FILE"
 
 "$DEVPOD_BIN" context set-options default -o SSH_INJECT_GIT_CREDENTIALS=false
-CMD=(devpod-cli up . --ide "$PROJECT_EDITOR" --workspace-env-file "$ENV_FILE")
+CMD=("$DEVPOD_BIN" up . --ide "$PROJECT_EDITOR" --workspace-env-file "$ENV_FILE")
 [[ -n "$RECREATE_FLAG" ]] && CMD+=("$RECREATE_FLAG")
 "${CMD[@]}"
