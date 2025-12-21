@@ -22,6 +22,16 @@
       "alignment": "left",
       "segments": [
         {
+          "leading_diamond": "<transparent,background>\ue0b0</>",
+          "trailing_diamond": "\ue0b0",
+          "template": " {{ .Icon }}  ",
+          "foreground": "p:white",
+          "background": "p:black",
+          "type": "os",
+          "style": "diamond",
+          "foreground_templates": ["{{ if gt .Code 0 }}red{{ end }}"]
+        },
+        {
           "options": {
             "style": "full"
           },
@@ -115,7 +125,7 @@
     },
     {
       "type": "prompt",
-      "alignment": "right",
+      "alignment": "left",
       "segments": [
         {
           "template": "{{ if .Env.DEVPOD }}{{ .UserName }}@{{ .Env.DEVPOD_WORKSPACE_ID }}{{ end }}",
@@ -130,25 +140,12 @@
           "background": "transparent",
           "type": "session",
           "style": "diamond"
-        }
-      ]
-    },
-    {
-      "type": "prompt",
-      "alignment": "left",
-      "segments": [
-        {
-          "template": "{{ if or .SSHSession (.Env.DEVPOD) }}\udb82\udcb9  {{ end }}",
-          "foreground": "p:green",
-          "background": "transparent",
-          "type": "session",
-          "style": "plain"
         },
         {
-          "template": "{{ if eq .OS \"arch\" }}\uf303  {{ else }}➜ {{ end}}",
-          "foreground": "p:blue",
+          "template": "➜ ",
+          "foreground": "p:white",
           "background": "transparent",
-          "type": "os",
+          "type": "text",
           "style": "plain",
           "foreground_templates": ["{{ if gt .Code 0 }}red{{ end }}"]
         }
