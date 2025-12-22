@@ -1,6 +1,9 @@
 #!/bin/bash
 set -e
 
+: "${TZ:=America/Sao_Paulo}"
+export TZ
+
 # update makepkg.conf
 sed -i '/^OPTIONS=/d;/^MAKEFLAGS=/d' /etc/makepkg.conf
 cat <<'EOF' >>/etc/makepkg.conf
@@ -10,7 +13,11 @@ EOF
 
 # update system, install initial packages
 pacman -Syu --noconfirm
-pacman -S --needed --noconfirm base-devel git reflector sudo zsh
+pacman -S --needed --noconfirm base-devel git reflector sudo tzdata zsh
+
+# timezone
+ln -sf "/usr/share/zoneinfo/$TZ" /etc/localtime
+echo "$TZ" >/etc/timezone
 
 # yay
 useradd -m build
@@ -45,6 +52,8 @@ PACKAGES=(
   k-git
   less
   oh-my-posh-bin
+  openssh
+  terraform
   zsh-autocomplete-git
   zsh-syntax-highlighting-git
 )

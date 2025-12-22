@@ -6,12 +6,14 @@ TARBALL_URL="https://github.com/$ORG/$REPO/archive/refs/heads/main.tar.gz"
 
 echo "Starting DevContainer setup from $ORG/$REPO..."
 curl -sfL "$TARBALL_URL" | tar -xz --strip-components=1 "$REPO-main/.devcontainer"
-rm -f .devcontainer/.env.devcontainer
 chmod +x .devcontainer/devpod.sh
+cat >.devcontainer/.env <<'EOF'
+GIT_NAME=dev
+GIT_EMAIL=dev@dev.com
+EOF
 echo "Setup complete!"
 echo ""
 echo "Next steps:"
-echo "  1. Copy .devcontainer/.env.devcontainer.example to .devcontainer/.env.devcontainer"
-echo "  2. Edit .devcontainer/.env.devcontainer with your settings"
-echo "  3. Edit .devcontainer/devcontainer.json to add features you need"
-echo "  4. Run ./.devcontainer/devpod.sh to start"
+echo "  1. Edit .devcontainer/.env with your git identity"
+echo "  2. Edit .devcontainer/devcontainer.json to add features you need"
+echo "  3. Run ./.devcontainer/devpod.sh to start"

@@ -5,11 +5,10 @@
   "workspaceFolder": "/code/${localWorkspaceFolderBasename}",
   "workspaceMount": "source=${localWorkspaceFolder},target=/code/${localWorkspaceFolderBasename},type=bind",
   "mounts": [
-    "source=${localEnv:GIT_SSH_KEY_PATH},target=/home/dev/.ssh/devpod,type=bind,consistency=cached,readonly"
+    "source=${localEnv:HOME}/.ssh/id_ed25519,target=/home/dev/.ssh/mounted_key,type=bind,consistency=cached,readonly",
+    "source=${localWorkspaceFolder}/.devcontainer/.env,target=/home/dev/.env-local,type=bind,consistency=cached,readonly"
   ],
-  "containerEnv": {
-    "TZ": "${localEnv:TZ}"
-  },
   "features": {},
-  "runArgs": ["--name", "devcontainer_${localWorkspaceFolderBasename}"]
+  "runArgs": ["--name", "devcontainer_${localWorkspaceFolderBasename}"],
+  "postCreateCommand": "/usr/local/bin/git-setup.sh"
 }

@@ -128,14 +128,14 @@
       "alignment": "left",
       "segments": [
         {
-          "template": "{{ if .Env.DEVPOD }}{{ .UserName }}@{{ .Env.DEVPOD_WORKSPACE_ID }}{{ end }}",
+          "template": "{{ if .Env.DEVPOD }}{{ .UserName }}@{{ .Env.DEVPOD_WORKSPACE_ID }} {{ end }}",
           "foreground": "p:green",
           "background": "transparent",
           "type": "session",
           "style": "diamond"
         },
         {
-          "template": "  {{ if .SSHSession }}{{ .UserName }}@{{ .HostName }}{{ end }}",
+          "template": "  {{ if .SSHSession }}{{ .UserName }}@{{ .HostName }} {{ end }}",
           "foreground": "p:green",
           "background": "transparent",
           "type": "session",
