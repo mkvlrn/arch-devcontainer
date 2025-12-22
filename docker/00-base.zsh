@@ -10,3 +10,5 @@ eval "$(oh-my-posh init zsh --config /home/dev/.config/zsh/mkvlrn.omp.json)"
 # disable expansion of variables
 zstyle ':autocomplete:*' min-input 3
 zstyle ':completion:*' completer _complete _complete:-fuzzy _correct _approximate _ignored
+
+alias ls="k"
