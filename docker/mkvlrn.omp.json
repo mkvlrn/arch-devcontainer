@@ -121,7 +121,7 @@
           ]
         }
       ],
-      "newline": true
+      "newline": false
     },
     {
       "type": "prompt",
