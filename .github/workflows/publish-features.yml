@@ -22,6 +22,7 @@ jobs:
       - name: Publish features
         uses: devcontainers/action@v1
         with:
+          publish-templates: "false"
           publish-features: "true"
           base-path-to-features: "./features"
         env:
