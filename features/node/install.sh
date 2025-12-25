@@ -5,7 +5,7 @@ set -e
 PACKAGES=(
   bun-bin
   nvm
-  pnpm
+  pnpm-bin
   pnpm-shell-completion
 )
 su dev -c "yay -S --needed --noconfirm ${PACKAGES[*]}"
