@@ -13,7 +13,7 @@ EOF
 
 # update system, install initial packages
 pacman -Syu --noconfirm
-pacman -S --needed --noconfirm base-devel git reflector sudo tzdata zsh
+pacman -S --needed --noconfirm base-devel git sudo tzdata zsh
 
 # timezone
 ln -sf "/usr/share/zoneinfo/$TZ" /etc/localtime
@@ -39,7 +39,6 @@ chmod 0440 "/etc/sudoers.d/$USERNAME"
 
 # update mirrors
 su dev -c "yay -Y --devel --save"
-reflector --latest 20 --protocol https --sort rate --save /etc/pacman.d/mirrorlist
 pacman -Syy --noconfirm
 
 # base packages
