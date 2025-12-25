@@ -3,7 +3,6 @@ set -e
 
 # install packages
 PACKAGES=(
-  bun-bin
   nvm
   pnpm-bin
   pnpm-shell-completion
