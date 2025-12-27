@@ -46,6 +46,7 @@ PACKAGES=(
   aws-cli-bin
   fastfetch
   github-cli
+  glab
   htop
   jq
   k-git
