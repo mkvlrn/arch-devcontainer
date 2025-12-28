@@ -32,28 +32,28 @@
           "style": "plain"
         },
         {
-          "template": "{{ if or (glob \"deno.json\") (glob \"bun.lock\") }}{{ else }} \udb80\udf99 {{ .Full }} {{ end }}",
+          "template": "{{ if or (glob \"deno.json\") (glob \"bun.lock\") }}{{ else }}\udb80\udf99 {{ .Full }} {{ end }}",
           "foreground": "p:node",
           "background": "transparent",
           "type": "node",
           "style": "plain"
         },
         {
-          "template": "{{ if glob \"deno.json\" }} \ue7c0 {{ .Full }} {{ end }}",
+          "template": "{{ if glob \"deno.json\" }}\ue7c0 {{ .Full }} {{ end }}",
           "foreground": "p:deno",
           "background": "transparent",
           "type": "deno",
           "style": "plain"
         },
         {
-          "template": "{{ if glob \"bun.lock\" }} \ue76f {{ .Full }} {{ end }}",
+          "template": "{{ if glob \"bun.lock\" }}\ue76f {{ .Full }} {{ end }}",
           "foreground": "p:bun",
           "background": "transparent",
           "type": "bun",
           "style": "plain"
         },
         {
-          "template": " \ue77f {{ .Full }} ",
+          "template": "\ue77f {{ .Full }} ",
           "foreground": "p:dotnet",
           "background": "transparent",
           "type": "dotnet",
@@ -64,14 +64,14 @@
             "display_mode": "context",
             "fetch_virtual_env": true
           },
-          "template": " \ue73c {{ .Full }}{{ if .Venv }} (.venv){{ end }} ",
+          "template": "\ue73c {{ .Full }}{{ if .Venv }} (.venv){{ end }} ",
           "foreground": "p:python",
           "background": "transparent",
           "type": "python",
           "style": "plain"
         },
         {
-          "template": " \ue627 {{ .Full }} ",
+          "template": "\ue627 {{ .Full }} ",
           "foreground": "p:go",
           "background": "transparent",
           "type": "go",
@@ -82,7 +82,7 @@
             "fetch_status": true,
             "fetch_upstream_icon": true
           },
-          "template": " {{ .UpstreamIcon }}  {{ .HEAD }}{{if .BranchStatus }} {{ .BranchStatus }}{{ end }}{{ if .Staging.Changed }} \uf046 {{ .Staging.String }}{{ end }}{{ if and (.Working.Changed) (.Staging.Changed) }} |{{ end }}{{ if .Working.Changed }} \uf044 {{ .Working.String }}{{ end }} ",
+          "template": "{{ .UpstreamIcon }}  {{ .HEAD }}{{if .BranchStatus }} {{ .BranchStatus }}{{ end }}{{ if .Staging.Changed }} \uf046 {{ .Staging.String }}{{ end }}{{ if and (.Working.Changed) (.Staging.Changed) }} |{{ end }}{{ if .Working.Changed }} \uf044 {{ .Working.String }}{{ end }} ",
           "foreground": "p:green",
           "background": "transparent",
           "type": "git",
