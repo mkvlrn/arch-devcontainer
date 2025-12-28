@@ -20,7 +20,7 @@ jobs:
       - name: Login to GHCR
         run: echo "${{ secrets.GITHUB_TOKEN }}" | docker login ghcr.io -u ${{ github.actor }} --password-stdin
 
-      - name: Build and push
+      - name: Build and push image
         run: |
           IMAGE_NAME="ghcr.io/mkvlrn/arch-devcontainer"
           CALVER="$(date +%Y.%m.%d-%H%M%S)"
@@ -32,3 +32,10 @@ jobs:
             -t "${IMAGE_NAME}:latest" \
             -f docker/Dockerfile \
             docker
+
+      - name: Cleanup untagged images
+        uses: actions/delete-package-versions@v5
+        with:
+          package-name: arch-devcontainer
+          package-type: container
+          delete-only-untagged-versions: true
