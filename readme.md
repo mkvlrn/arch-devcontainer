@@ -8,7 +8,8 @@ a devcontainer setup using arch linux as base image, with optional features for 
 
 - docker
 - a linux-like shell (git-bash is good enough on windows)
-- an ssh key ready to be used for git operations
+- an ssh key for git operations ([how to create one](https://docs.github.com/en/authentication/connecting-to-github-with-ssh/generating-a-new-ssh-key-and-adding-it-to-the-ssh-agent))
+  - if your key isn't `~/.ssh/id_ed25519`, update the path in `.devcontainer/devcontainer.json`
 - one of:
   1. [devpod](https://devpod.sh/) - better than vscode's devcontainer extension, more flexible, works with any editor/ide
   2. vscode's devcontainer extension
@@ -59,12 +60,12 @@ json
 
 ## available features
 
-| Feature                                   | Description                                           |
-| ----------------------------------------- | ----------------------------------------------------- |
-| `ghcr.io/mkvlrn/arch-devcontainer/node`   | nvm, pnpm, bun (option: `nodeVersion`, default: `24`) |
-| `ghcr.io/mkvlrn/arch-devcontainer/go`     | go + tools (gopls, delve, golangci-lint, etc.)        |
-| `ghcr.io/mkvlrn/arch-devcontainer/python` | uv package manager + `newpy` helper function          |
-| `ghcr.io/mkvlrn/arch-devcontainer/dotnet` | dotnet sdk                                            |
+| Feature                                   | Description                                         |
+| ----------------------------------------- | --------------------------------------------------- |
+| `ghcr.io/mkvlrn/arch-devcontainer/node`   | nvm and pnpm (option: `nodeVersion`, default: `24`) |
+| `ghcr.io/mkvlrn/arch-devcontainer/go`     | go + tools (gopls, delve, golangci-lint, etc.)      |
+| `ghcr.io/mkvlrn/arch-devcontainer/python` | uv package manager + `newpy` helper function        |
+| `ghcr.io/mkvlrn/arch-devcontainer/dotnet` | dotnet sdk                                          |
 
 ## how it works
 
