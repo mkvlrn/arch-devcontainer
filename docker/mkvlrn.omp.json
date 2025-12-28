@@ -22,16 +22,6 @@
       "alignment": "left",
       "segments": [
         {
-          "leading_diamond": "<transparent,background>\ue0b0</>",
-          "trailing_diamond": "\ue0b0",
-          "template": " {{ .Icon }}  ",
-          "foreground": "p:white",
-          "background": "p:black",
-          "type": "os",
-          "style": "diamond",
-          "foreground_templates": ["{{ if gt .Code 0 }}red{{ end }}"]
-        },
-        {
           "options": {
             "style": "full"
           },
