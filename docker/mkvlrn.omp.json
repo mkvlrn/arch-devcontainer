@@ -25,7 +25,7 @@
           "options": {
             "style": "full"
           },
-          "template": "<b>\ueaf7  {{ .Path }}</b> ",
+          "template": "<b>{{ .Path }}</b> ",
           "foreground": "p:lavender",
           "background": "transparent",
           "type": "path",
