@@ -4,6 +4,24 @@
 
 a devcontainer setup using arch linux as base image, with optional features for different development stacks (node, go, python, dotnet)
 
+## base packages
+
+the base image includes:
+
+- aws-cli-bin
+- fastfetch
+- github-cli
+- glab
+- htop
+- jq
+- k-git
+- less
+- oh-my-posh-bin
+- openssh
+- terraform
+- zsh-autocomplete-git
+- zsh-syntax-highlighting-git
+
 ## requirements
 
 - docker
@@ -60,12 +78,12 @@ json
 
 ## available features
 
-| Feature                                   | Description                                         |
-| ----------------------------------------- | --------------------------------------------------- |
-| `ghcr.io/mkvlrn/arch-devcontainer/node`   | nvm and pnpm (option: `nodeVersion`, default: `24`) |
-| `ghcr.io/mkvlrn/arch-devcontainer/go`     | go + tools (gopls, delve, golangci-lint, etc.)      |
-| `ghcr.io/mkvlrn/arch-devcontainer/python` | uv package manager + `newpy` helper function        |
-| `ghcr.io/mkvlrn/arch-devcontainer/dotnet` | dotnet sdk                                          |
+| Feature                             | Description                                         |
+| ----------------------------------- | --------------------------------------------------- |
+| [node](features/node/readme.md)     | nvm and pnpm (option: `nodeVersion`, default: `24`) |
+| [go](features/go/readme.md)         | go + tools (gopls, delve, golangci-lint, etc.)      |
+| [python](features/python/readme.md) | uv package manager + `newpy` helper function        |
+| [dotnet](features/dotnet/readme.md) | dotnet sdk                                          |
 
 ## how it works
 
