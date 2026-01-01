@@ -79,14 +79,14 @@ json
 
 ```bash
 # default (vscode)
-./.devcontainer/devpod.sh
+./devpod.sh
 
 # specify ide
 # to view supported ides run `devpod ide list`
-./.devcontainer/devpod.sh --ide zed
+./devpod.sh --ide zed
 
 # recreate container (to use an updated container image, for example)
-./.devcontainer/devpod.sh --recreate
+./devpod.sh --recreate
 ```
 
 ### with vscode devcontainer extension

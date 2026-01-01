@@ -1,0 +1,9 @@
+services:
+  devcontainer:
+    container_name: devcontainer_${COMPOSE_PROJECT_NAME}
+    image: ghcr.io/mkvlrn/arch-devcontainer:latest
+    env_file:
+      - ./.devcontainer/.env
+    volumes:
+      - .:/code/${COMPOSE_PROJECT_NAME}:cached
+    command: sleep infinity

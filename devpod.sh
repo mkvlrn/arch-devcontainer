@@ -28,6 +28,8 @@ else
   exit 1
 fi
 
+export COMPOSE_PROJECT_NAME=$(basename "$PWD")
+
 "$DEVPOD_BIN" context set-options default \
   -o SSH_INJECT_GIT_CREDENTIALS=false \
   -o SSH_INJECT_DOCKER_CREDENTIALS=false \
