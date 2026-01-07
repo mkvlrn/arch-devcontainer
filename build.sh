@@ -19,7 +19,6 @@ echo "==> Building image..."
 
 docker buildx build \
     $NOCACHE_FLAG \
-    --platform linux/amd64 \
     -t "${IMAGE_NAME}:${CALVER}" \
     -t "${IMAGE_NAME}:latest" \
     -f "$DOCKER_DIR/Dockerfile" \

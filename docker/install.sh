@@ -44,7 +44,6 @@ pacman -Syy --noconfirm
 # base packages
 PACKAGES=(
   aws-cli-bin
-  dotnet-sdk-bin
   fastfetch
   github-cli
   glab
@@ -59,7 +58,6 @@ PACKAGES=(
   pnpm-bin
   pnpm-shell-completion
   terraform
-  uv
   zsh-autocomplete-git
   zsh-syntax-highlighting-git
 )

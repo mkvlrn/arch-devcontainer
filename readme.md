@@ -2,12 +2,7 @@
 
 ## what is this
 
-a devcontainer setup using arch linux as base image with tools for:
-
-- node
-- go
-- python
-- dotnet
+a devcontainer setup using arch linux as base image with tools for node and go
 
 ## requirements
 
