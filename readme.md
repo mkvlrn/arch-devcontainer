@@ -2,25 +2,12 @@
 
 ## what is this
 
-a devcontainer setup using arch linux as base image, with optional features for different development stacks (node, go, python, dotnet)
+a devcontainer setup using arch linux as base image with tools for:
 
-## base packages
-
-the base image includes:
-
-- aws-cli-bin
-- fastfetch
-- github-cli
-- glab
-- htop
-- jq
-- k-git
-- less
-- oh-my-posh-bin
-- openssh
-- terraform
-- zsh-autocomplete-git
-- zsh-syntax-highlighting-git
+- node
+- go
+- python
+- dotnet
 
 ## requirements
 
@@ -48,42 +35,6 @@ this downloads the `.devcontainer` directory with the base configuration and a h
 GIT_NAME=Your Name
 GIT_EMAIL=your.email@example.com
 ```
-
-2. **edit `.devcontainer/devcontainer.json` to add features you need:**
-
-```json
-json
-{
-  "features": {
-    "ghcr.io/mkvlrn/arch-devcontainer/node:latest": {},
-    "ghcr.io/mkvlrn/arch-devcontainer/go:latest": {},
-    "ghcr.io/mkvlrn/arch-devcontainer/python:latest": {},
-    "ghcr.io/mkvlrn/arch-devcontainer/dotnet:latest": {},
-  }
-}
-```
-
-or with options:
-
-```json
-json
-{
-  "features": {
-    "ghcr.io/mkvlrn/arch-devcontainer/node:latest": {
-      "nodeVersion": "22"
-    }
-  }
-}
-```
-
-## available features
-
-| Feature                             | Description                                         |
-| ----------------------------------- | --------------------------------------------------- |
-| [node](features/node/readme.md)     | nvm and pnpm (option: `nodeVersion`, default: `24`) |
-| [go](features/go/readme.md)         | go + tools (gopls, delve, golangci-lint, etc.)      |
-| [python](features/python/readme.md) | uv package manager + `newpy` helper function        |
-| [dotnet](features/dotnet/readme.md) | dotnet sdk                                          |
 
 ## how it works
 
