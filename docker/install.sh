@@ -80,3 +80,8 @@ su - dev -s /bin/zsh -c '
   go install github.com/golangci/golangci-lint/cmd/golangci-lint@latest
   go install mvdan.cc/gofumpt@latest
 '
+
+# cleanup
+pacman -Scc --noconfirm
+su dev -c "yay -Scc --noconfirm"
+rm -rf /var/cache/pacman/pkg/* /home/dev/.cache /tmp/* /home/dev/.nvm/.cache /home/dev/.npm /home/dev/.go/pkg/mod

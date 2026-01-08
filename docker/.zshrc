@@ -1,9 +1,7 @@
 export GIT_CONFIG_GLOBAL="$HOME/.gitconfig-container"
-export NVM_DIR="$HOME/.nvm"
 export GOPATH="$HOME/.go"
-export DOTNET_TOOLS=~/.dotnet/tools
 # PATH
-export PATH="$PATH:$NVM_DIR:$GOPATH/bin:$DOTNET_TOOLS"
+export PATH="$PATH:$NVM_DIR:$GOPATH/bin"
 
 # zsh plugins
 plugins=(git)
