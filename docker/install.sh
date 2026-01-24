@@ -47,7 +47,6 @@ PACKAGES=(
   fastfetch
   github-cli
   glab
-  go
   htop
   jq
   k-git
@@ -69,17 +68,6 @@ su - dev -s /bin/zsh -c "
   source /usr/share/nvm/init-nvm.sh
   nvm install --lts
 "
-
-# go tools
-su - dev -s /bin/zsh -c '
-  go install golang.org/x/tools/gopls@latest
-  go install github.com/go-delve/delve/cmd/dlv@latest
-  go install github.com/haya14busa/goplay/cmd/goplay@latest
-  go install github.com/josharian/impl@latest
-  go install github.com/cweill/gotests/gotests@latest
-  go install github.com/golangci/golangci-lint/cmd/golangci-lint@latest
-  go install mvdan.cc/gofumpt@latest
-'
 
 # cleanup
 pacman -Scc --noconfirm

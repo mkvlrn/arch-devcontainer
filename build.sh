@@ -6,11 +6,15 @@ CALVER="$(date +%Y.%m.%d-%H%M%S)"
 
 # parse arguments
 NOCACHE_FLAG=""
+CACHE_FLAGS=""
 PUSH_FLAG=""
 for arg in "$@"; do
     case "$arg" in
     --no-cache) NOCACHE_FLAG="--no-cache" ;;
-    --push) PUSH_FLAG="--push" ;;
+    --push)
+        PUSH_FLAG="--push"
+        CACHE_FLAGS="--cache-from type=registry,ref=${IMAGE_NAME}:buildcache --cache-to type=registry,ref=${IMAGE_NAME}:buildcache,mode=max"
+        ;;
     esac
 done
 
@@ -18,6 +22,7 @@ done
 echo "==> Building image..."
 docker buildx build \
     $NOCACHE_FLAG \
+    $CACHE_FLAGS \
     $PUSH_FLAG \
     -t "${IMAGE_NAME}:${CALVER}" \
     -t "${IMAGE_NAME}:latest" \
