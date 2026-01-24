@@ -44,6 +44,9 @@ pacman -Syy --noconfirm
 # base packages
 PACKAGES=(
   aws-cli-bin
+  docker
+  docker-buildx
+  docker-compose
   fastfetch
   github-cli
   glab
