@@ -37,40 +37,32 @@ useradd -m -s /bin/zsh -u "$USER_UID" -g "$USER_GID" "$USERNAME"
 echo "$USERNAME ALL=(ALL) NOPASSWD: ALL" >"/etc/sudoers.d/$USERNAME"
 chmod 0440 "/etc/sudoers.d/$USERNAME"
 
+# copy .config over
+cp -r /tmp/.config /home/dev/.config
+chown -R dev:dev /home/dev/.config
+
 # update mirrors
 su dev -c "yay -Y --devel --save"
 pacman -Syy --noconfirm
 
 # base packages
 PACKAGES=(
-  aws-cli-bin
   docker
   docker-buildx
   docker-compose
   fastfetch
-  github-cli
-  glab
+  fish
+  fisher
   htop
-  jq
-  k-git
   less
-  nvm
-  oh-my-posh-bin
+  mise
   openssh
-  pnpm-bin
-  pnpm-shell-completion
-  terraform
-  zsh-autocomplete-git
-  zsh-syntax-highlighting-git
 )
 su dev -c "yay -S --needed --noconfirm ${PACKAGES[*]}"
 
-# latest node via nvm
-su - dev -s /bin/zsh -c "
-  export NVM_DIR=/home/dev/.nvm
-  source /usr/share/nvm/init-nvm.sh
-  nvm install --lts
-"
+# dev packages with fish/mise
+su dev -c 'fish -c "fisher install g-plane/pnpm-shell-completion"'
+su dev -c 'mise install'
 
 # cleanup
 pacman -Scc --noconfirm

@@ -1,0 +1,14 @@
+[tools]
+oh-my-posh = "latest"
+jq = "latest"
+glab = "latest"
+github-cli = "latest"
+node = "latest"
+pnpm = "latest"
+"npm:npm" = "latest"
+"npm:npm-check-updates" = "latest"
+
+
+[settings]
+disable_backends = ["asdf"]
+legacy_version_file = true
