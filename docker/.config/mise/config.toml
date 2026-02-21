@@ -1,5 +1,6 @@
 [tools]
 oh-my-posh = "latest"
+usage = "latest"
 jq = "latest"
 glab = "latest"
 github-cli = "latest"
