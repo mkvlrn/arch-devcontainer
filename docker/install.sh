@@ -37,9 +37,11 @@ useradd -m -s /bin/zsh -u "$USER_UID" -g "$USER_GID" "$USERNAME"
 echo "$USERNAME ALL=(ALL) NOPASSWD: ALL" >"/etc/sudoers.d/$USERNAME"
 chmod 0440 "/etc/sudoers.d/$USERNAME"
 
-# copy .config over
+# copy .config and .zshrc over
 cp -r /tmp/.config /home/dev/.config
 chown -R dev:dev /home/dev/.config
+cp -r /tmp/.zshrc /home/dev/
+chown -R dev:dev /home/dev/.zshrc
 
 # update mirrors
 su dev -c "yay -Y --devel --save"
@@ -51,17 +53,20 @@ PACKAGES=(
   docker-buildx
   docker-compose
   fastfetch
-  fish
-  fisher
   htop
+  k-git
   less
   mise
+  oh-my-posh-bin
   openssh
+  pnpm-shell-completion
+  zsh
+  zsh-autocomplete-git
+  zsh-syntax-highlighting-git
 )
 su dev -c "yay -S --needed --noconfirm ${PACKAGES[*]}"
 
-# dev packages with fish/mise
-su dev -c 'fish -c "fisher install g-plane/pnpm-shell-completion"'
+# dev packages with mise
 su dev -c 'mise install'
 
 # cleanup
