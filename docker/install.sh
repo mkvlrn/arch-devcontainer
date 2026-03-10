@@ -56,7 +56,6 @@ PACKAGES=(
   htop
   k-git
   less
-  mise
   oh-my-posh-bin
   openssh
   pnpm-shell-completion
@@ -67,7 +66,7 @@ PACKAGES=(
 su dev -c "yay -S --needed --noconfirm ${PACKAGES[*]}"
 
 # dev packages with mise
-su dev -c 'mise install'
+su -l dev -c "curl https://mise.run | sh && PATH=\"/home/dev/.local/bin:\$PATH\" /home/dev/.local/bin/mise install"
 
 # cleanup
 pacman -Scc --noconfirm
