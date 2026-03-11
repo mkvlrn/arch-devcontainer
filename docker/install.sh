@@ -60,8 +60,8 @@ PACKAGES=(
   openssh
   pnpm-shell-completion
   zsh
-  zsh-autocomplete-git
-  zsh-syntax-highlighting-git
+  zsh-autocomplete
+  zsh-syntax-highlighting
 )
 su dev -c "yay -S --needed --noconfirm ${PACKAGES[*]}"
 
