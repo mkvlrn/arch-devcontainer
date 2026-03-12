@@ -11,4 +11,3 @@ pnpm = "latest"
 
 [settings]
 disable_backends = ["asdf"]
-legacy_version_file = true

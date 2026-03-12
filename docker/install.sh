@@ -13,7 +13,7 @@ EOF
 
 # update system, install initial packages
 pacman -Syu --noconfirm
-pacman -S --needed --noconfirm base-devel git sudo tzdata zsh
+pacman -S --needed --noconfirm base-devel git sudo tzdata fish
 
 # timezone
 ln -sf "/usr/share/zoneinfo/$TZ" /etc/localtime
@@ -33,15 +33,14 @@ USERNAME="dev"
 USER_UID="1000"
 USER_GID="$USER_UID"
 groupadd -g "$USER_GID" "$USERNAME"
-useradd -m -s /bin/zsh -u "$USER_UID" -g "$USER_GID" "$USERNAME"
+useradd -m -s /bin/fish -u "$USER_UID" -g "$USER_GID" "$USERNAME"
 echo "$USERNAME ALL=(ALL) NOPASSWD: ALL" >"/etc/sudoers.d/$USERNAME"
 chmod 0440 "/etc/sudoers.d/$USERNAME"
 
-# copy .config and .zshrc over
+# copy .config over
 cp -r /tmp/.config /home/dev/.config
+mkdir -p /home/dev/.config/fish/completions
 chown -R dev:dev /home/dev/.config
-cp -r /tmp/.zshrc /home/dev/
-chown -R dev:dev /home/dev/.zshrc
 
 # update mirrors
 su dev -c "yay -Y --devel --save"
@@ -53,22 +52,24 @@ PACKAGES=(
   docker-buildx
   docker-compose
   fastfetch
+  fish
   htop
-  k-git
   less
   oh-my-posh-bin
   openssh
-  pnpm-shell-completion
-  zsh
-  zsh-autocomplete
-  zsh-syntax-highlighting
 )
 su dev -c "yay -S --needed --noconfirm ${PACKAGES[*]}"
 
 # dev packages with mise
 su -l dev -c "curl https://mise.run | sh && PATH=\"/home/dev/.local/bin:\$PATH\" /home/dev/.local/bin/mise install"
 
+# fish completions
+su dev -c "glab completion -s fish >~/.config/fish/completions/glab.fish"
+su dev -c "mise completion fish >~/.config/fish/completions/mise.fish"
+su dev -c "pnpm completion fish >~/.config/fish/completions/pnpm.fish"
+su dev -c "gh completion -s fish >~/.config/fish/completions/gh.fish"
+
 # cleanup
 pacman -Scc --noconfirm
 su dev -c "yay -Scc --noconfirm"
-rm -rf /var/cache/pacman/pkg/* /home/dev/.cache /tmp/* /home/dev/.nvm/.cache /home/dev/.npm /home/dev/.go/pkg/mod
+rm -rf /var/cache/pacman/pkg/* /home/dev/.cache /tmp/*
