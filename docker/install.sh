@@ -51,8 +51,6 @@ PACKAGES=(
   docker
   docker-buildx
   docker-compose
-  eza
-  fastfetch
   fish
   htop
   less
